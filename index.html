@@ -1,28 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>MNIST with Vue.js and Tensorflow.js</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <link rel="stylesheet" href="app.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-  </head>
-  <body>
-    <div id="app">
+</head>
+<body>
+<div id="app">
     <div class="container">
-      <section class="hero">
-        <div class="hero-body">
-          <h1 class="title">Welcome!</h1>
-          <h2 class="subtitle">Let's try neural networks on a planar dataset with two classes</h2>
-        </div>
-      </section>
+        <section class="hero">
+            <div class="hero-body">
+                <h1 class="title">Logistic Regression vs Neural Network Using Tensorflow.js</h1>
+                <h2 class="subtitle">Let's try to classify a planar dataset with two classes</h2>
+            </div>
+        </section>
+        <section class="section">
+            <div class="columns">
+                <div class="column" id="plotSection"></div>
+            </div>
+            <div class="columns">
+                <div class="column">
+
+                    <br><br>
+
+                    <p>Click on the Buttons one at a time to train the models</p>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy</th>
+                            <th>Layer 1</th>
+                            <th>Activation 1</th>
+                            <th>Layer 2</th>
+                            <th>Activation 2</th>
+                            <th>Optimizer</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a class="button is-warning" v-on:click="makePrediction">Logistic Regression</a>
+                            </td>
+                            <td>{{ accuracyLR }}</td>
+                            <td>Dot Product of Weight Matrix and Input</td>
+                            <td>Sigmoid</td>
+                            <td>None</td>
+                            <td>None</td>
+                            <td>SGD</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="button is-info" v-on:click="trainNeuralNet">Neural Network</a>
+                            </td>
+                            <td>{{ accuracyNeu }}</td>
+                            <td>Dot Product of Weight Matrix and Input</td>
+                            <td>tanh</td>
+                            <td>Dot product of weight matrix with result of previous layer</td>
+                            <td>Sigmoid</td>
+                            <td>Adam</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <p>We see that a linear classifier doesn't do well in this type of data distribution</p>
+            <p>Find this in <a href="https://github.com/pranayaryal/scatter">github</a></p>
+        </section>
     </div>
 
-    </div>
-    <!-- built files will be auto injected -->
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script>
-  <script src="app.js"></script>
+</div>
+<!-- built files will be auto injected -->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"></script>
+<script src="app.js"></script>
 </html>

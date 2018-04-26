@@ -1,0 +1,20 @@
+.dot{
+    stroke: #000;
+}
+
+.label{
+    display: block;
+    font-size: 11px;
+}
+
+.tooltip{
+
+    position: absolute;
+    /*width: 250px;*/
+    height: 70px;
+    pointer-events: none;
+}
+
+text {
+    display: block;
+}
