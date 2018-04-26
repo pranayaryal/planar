@@ -69,15 +69,7 @@ var app = new Vue({
 
     methods: {
 
-        async createData() {
 
-
-        },
-
-        async init() {
-            await this.createData();
-
-        },
 
         createPlot() {
 
