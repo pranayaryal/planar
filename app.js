@@ -23,7 +23,7 @@ for (var j = 0; j < 2; j++) {
 
     console.log(`The shape of stacksincos is ${stackSinCos.shape}`)
 
-    this.collectStack.push(stackSinCos)
+    collectStack.push(stackSinCos)
 
     console.log(`The shape of cossed is ${cossed.shape}`)
 }
