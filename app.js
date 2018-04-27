@@ -247,7 +247,7 @@ var app = new Vue({
             model2.compile({loss: 'binaryCrossentropy', optimizer: 'adam'})
 
             setTimeout(() => {
-                model2.fit(concatted, Ycreated, {epochs: 1000}).then(() => {
+                model2.fit(concatted, Ycreated, {epochs: 100}).then(() => {
                     const prediction1 = model2.predict(concatted)
                     const prediction = tf.greater(prediction1, tf.scalar(0.5)).toFloat();
                     const accuracy = prediction.equal(Ycreated).sum().get([0]) / 4
